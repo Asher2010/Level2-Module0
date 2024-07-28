@@ -11,24 +11,24 @@ from pathlib import Path
 
 def reading_file(filename):
     with open(file=filename, mode='r') as file_handle:
-        for line in file_handle:
-            print(line, end='')
-    return None
+        return file_handle.read()
 
 # TODO 2) Write the specified text to the given filename. If the file doesn't
 #  exist the function should create it.
 
 
 def write_file(filename, text):
-    return None
+    with open(file=filename, mode='w') as file_handle:
+        return file_handle.write(text)
 
 # TODO 3) Return True if the filename exists at the given directory and return
 #  False otherwise
 
 
 def file_exists(directory_from_cwd, filename):
-    return None
-
+    path = Path.joinpath(Path.cwd(), directory_from_cwd, filename)
+    file_exist = path.is_file()
+    return file_exist
 
 # ======================= DO NOT EDIT THE CODE BELOW =========================
 
